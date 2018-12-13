@@ -9,7 +9,7 @@
 import UIKit
 
 class ResultadosTableViewCell: UITableViewCell {
-        
+
     @IBOutlet weak var Encuesta: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()

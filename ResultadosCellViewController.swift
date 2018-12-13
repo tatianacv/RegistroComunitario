@@ -10,33 +10,65 @@ import UIKit
 
 class ResultadosCellViewController: UIViewController {
     
-    @IBOutlet weak var resultados: UILabel!
+    //Text view, aquí es dónde se va a desplegar los resultados
+    @IBOutlet weak var celda: UITextView!
+    
+    //Información del view controller pasado para saber cuál encuesta se toco para desplegar la información correcta
     var getNumber = Int()
-    func Function() {
-//        let indexNumb = getNumber
-//        var contestaciones = String()
-        self.resultados.text = resultsInJSON
-//        for q in 1..<arrayOfDict[getNumber].count{
-//                if(q == 38 || q == 39 || q == 40 || q == 41 || q == 42 || q == 43){
-//                    let yes = arrayOfDict[getNumber][String(q)]
-//                    contestaciones = contestaciones + "\nPregunta " + String(q) + ": " + String(yes)
-//                }
-//                else if(q == 1 || q==12 || q == 39 || q == 44 || q == 37){
-//                    contestaciones = contestaciones + "\nInstrucciones"
-//                }
-//                else{
-//                    let number = arrayOfDict[getNumber][String(q)]
-//                    contestaciones = contestaciones + "\nPregunta " + String(q) +": " + String(number)
-//                }
-//            }
+    
+    //Esta función hace
+    func DesplegarBonito() {
+        //String que va a guardar todas las contestaciones
+        var contestaciones = String()
+        
+        //Loop que corre por todas las preguntas de la encuesta
+        for q in 1..<arrayOfDict[getNumber].count{
+            
+            //Estas son las preguntas booleanas
+            if(q == 38 || q == 39 || q == 40 || q == 41 || q == 42 || q == 43){
+                if let yesOrNo = arrayOfDict[getNumber][String(q)] as? Bool {
+                        if(yesOrNo == true){
+                            contestaciones = contestaciones + "La contestación para la pregunta " + String(q) + " es cierta.\n"
+                        }
+                        if(yesOrNo == false){
+                            contestaciones = contestaciones + "La contestación para la pregunta " + String(q) + " es falsa.\n"
+                        }
+                    }
+                }
+                //Los pasos que son instrucciones
+                else if(q == 1 || q==12 || q == 39 || q == 44 || q == 37){
+                    contestaciones = contestaciones + "La pregunta " + String(q) + " es una instrucción. \n"
+                }
+                //Nombre de la comunidad
+                else if(q == 2 ){
+                    if let comunidad = arrayOfDict[getNumber][String(q)] as? String {
+                        contestaciones = contestaciones + "La pregunta " + String(q) + " nos dice que la comunidad a la que pertenece es " + comunidad + "\n"
+                    }
+                }
+                //Número de Zipcode
+                else if(q == 3){
+                        if let zipcode = arrayOfDict[getNumber][String(q)] as? String {
+                            contestaciones = contestaciones + "La pregunta " + String(q) + " nos dice que el zipcode al que pertenece es " + zipcode + "\n"
+                        }
+                }
+                //Para las contestaciones númericas
+                else{
+                        if let number = arrayOfDict[getNumber][String(q)] as? Int {
+                        contestaciones = contestaciones + "La contestación de la pregunta " + String(q) + " es " + String(number) + "\n"
+                    }
+            }
+        }
+        //Hace que el text fiel de celda coga la información que esta en la variable contestaciones y la despliegue
+        self.celda.text = contestaciones
     }
+    
     override func viewDidLoad() {
-        Function()
+        //Llama a la función desplegar bonito
+        DesplegarBonito()
         super.viewDidLoad()
-
-
-        // Do any additional setup after loading the view.
+        
     }
+}
     
 
     /*
@@ -48,5 +80,3 @@ class ResultadosCellViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-}

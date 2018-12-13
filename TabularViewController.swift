@@ -9,24 +9,18 @@
 import UIKit
 
 class TabularViewController: UIViewController {
+    
     @IBOutlet weak var comunidad: UITextField!
     @IBOutlet weak var zipcode: UITextField!
     
-//    @IBAction func getVal(_ sender: Any) {
-//        let zipcodeIdentificador: String!
-//        let comunidadIdentificador: String!
-//
-//        zipcodeIdentificador = zipcode.text
-//        comunidadIdentificador = comunidad.text
-//    }
-    
+    //Este botón nos dice para ir al otro view controller que es el de la tabulación
     @IBAction func nexVCAction(_ sender: Any) {
-        
+        //Hacer la transición entre los view controllers
         self.performSegue(withIdentifier: "tabulacion", sender: self)
         
     }
     
-    
+    //Esta función me coge la información ingresada por el usuario y 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "tabulacion" {
             let vc = segue.destination as! TabulacionResultadosViewController
