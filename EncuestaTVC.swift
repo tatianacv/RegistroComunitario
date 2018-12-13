@@ -11,9 +11,9 @@ import Foundation
 
 class EncuestaTVC: UITableViewController {
     
-    //Botón que corresponde a crear una nueva encuesta
-    @IBAction func newEncuesta(_ sender: Any){
-    }
+//    //Botón que corresponde a crear una nueva encuesta
+//    @IBAction func newEncuesta(_ sender: Any){
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
