@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ResultadosCellViewController: UIViewController {
     
     //Text view, aquí es dónde se va a desplegar los resultados
@@ -20,10 +22,8 @@ class ResultadosCellViewController: UIViewController {
     func DesplegarBonito() {
         //String que va a guardar todas las contestaciones
         var contestaciones = String()
-        
         //Loop que corre por todas las preguntas de la encuesta
         for q in 1..<arrayOfDict[getNumber].count{
-            
             //Estas son las preguntas booleanas
             if(q == 38 || q == 39 || q == 40 || q == 41 || q == 42 || q == 43){
                 if let yesOrNo = arrayOfDict[getNumber][String(q)] as? Bool {

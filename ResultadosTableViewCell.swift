@@ -10,6 +10,7 @@ import UIKit
 
 class ResultadosTableViewCell: UITableViewCell {
 
+    //Esto se hace para mandar entre view controller
     @IBOutlet weak var Encuesta: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()

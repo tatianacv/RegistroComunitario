@@ -8,6 +8,8 @@
 
 import UIKit
 
+var contestaciones = String()   //Guardar las contestaciones
+
 class TabulacionResultadosViewController: UIViewController {
     
     //Guardar los valores de los identificadores
@@ -21,7 +23,6 @@ class TabulacionResultadosViewController: UIViewController {
     @IBOutlet weak var tabInfo: UITextView!
     
     override func viewDidLoad() {
-        var contestaciones = String()   //Guardar las contestaciones
         var count = 0   //Llevar la cuenta de la tabulación
         var yes = 0     //Cuantos hay del sí
         var no = 0      //Cuantos hay del no

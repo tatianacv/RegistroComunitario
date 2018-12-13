@@ -10,8 +10,8 @@ import UIKit
 
 class TabularViewController: UIViewController {
     
-    @IBOutlet weak var comunidad: UITextField!
-    @IBOutlet weak var zipcode: UITextField!
+    @IBOutlet weak var comunidad: UITextField!  //Aquí se guarda el identificador de comunidad
+    @IBOutlet weak var zipcode: UITextField!    //Aquí se guarda el identificador del zipcode
     
     //Este botón nos dice para ir al otro view controller que es el de la tabulación
     @IBAction func nexVCAction(_ sender: Any) {
@@ -22,10 +22,11 @@ class TabularViewController: UIViewController {
     
     //Esta función me coge la información ingresada por el usuario y 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Mandar información a otro lado
         if segue.identifier  == "tabulacion" {
             let vc = segue.destination as! TabulacionResultadosViewController
-            vc.comunidadIdentificador = comunidad.text! 
-            vc.zipCodeIdentificador = zipcode.text!
+            vc.comunidadIdentificador = comunidad.text! //Mandar esta información a otro view controller
+            vc.zipCodeIdentificador = zipcode.text!     //Mandar esta información a otro view controller
             
         }
     }
